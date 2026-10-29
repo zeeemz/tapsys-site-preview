@@ -32,6 +32,19 @@ Built: 29 October 2026 · Replaces the React SPA with a static, server-rendered 
 
 ## Deployment steps (STAGING FIRST — production stays untouched)
 
+**Fast path — automated:** `deploy/deploy.sh` (run from Git Bash) wraps this entire section:
+```bash
+export TAPSYS_FTP_HOST=ftp.tapsys.net   # your host
+export TAPSYS_FTP_USER=...              # FTP user
+export TAPSYS_FTP_PASS=...              # FTP password (env only, never stored)
+./deploy.sh stage      # upload to staging folder — production untouched
+./deploy.sh verify     # HTTP-check live + staging URLs
+./deploy.sh cutover    # rename live→backup, staging→live (asks for confirmation)
+./deploy.sh rollback   # instant restore of the backup folder
+```
+
+**Manual path:**
+
 **A. Staging (recommended)**
 1. On the hosting panel, create a subdomain e.g. `new.tapsys.net` pointing to a new folder such as `www_new`.
 2. Upload EVERYTHING in this folder (except this README and `web.config-rewrite-optional.txt`) into that folder — binary mode for images/fonts.
