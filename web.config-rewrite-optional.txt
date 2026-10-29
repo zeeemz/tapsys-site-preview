@@ -1,0 +1,53 @@
+OPTIONAL — extensionless URLs for IIS
+======================================
+
+The shipped web.config deliberately contains NO <rewrite> rules: on some shared
+Windows hosts the URL Rewrite module is not installed and a <rewrite> block makes
+the whole site return HTTP 500. The site is fully functional with .html URLs.
+
+If you WANT pretty URLs (tapsys.net/services instead of tapsys.net/services.html):
+
+1. Test whether the Rewrite module exists: create a test page with this block in
+   a web.config; if the site still loads, the module is present.
+2. Merge this block into web.config inside <system.webServer>:
+
+<rewrite>
+  <rules>
+    <!-- Serve extensionless URL for each page (externally clean, internally .html) -->
+    <rule name="services" stopProcessing="true">
+      <match url="^services/?$" />
+      <action type="Rewrite" url="services.html" />
+    </rule>
+    <rule name="product" stopProcessing="true">
+      <match url="^product/?$" />
+      <action type="Rewrite" url="product.html" />
+    </rule>
+    <rule name="pricing" stopProcessing="true">
+      <match url="^pricing/?$" />
+      <action type="Rewrite" url="pricing.html" />
+    </rule>
+    <rule name="company" stopProcessing="true">
+      <match url="^company/?$" />
+      <action type="Rewrite" url="company.html" />
+    </rule>
+    <rule name="contact" stopProcessing="true">
+      <match url="^contact/?$" />
+      <action type="Rewrite" url="contact.html" />
+    </rule>
+    <rule name="terms" stopProcessing="true">
+      <match url="^terms/?$" />
+      <action type="Rewrite" url="terms.html" />
+    </rule>
+    <rule name="privacy" stopProcessing="true">
+      <match url="^privacy/?$" />
+      <action type="Rewrite" url="privacy.html" />
+    </rule>
+    <rule name="blogroot" stopProcessing="true">
+      <match url="^blog/?$" />
+      <action type="Rewrite" url="blog/index.html" />
+    </rule>
+  </rules>
+</rewrite>
+
+3. If enabled, also update sitemap.xml <loc> entries and canonical tags to the
+   extensionless form before submitting to Search Console.
