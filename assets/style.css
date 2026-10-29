@@ -207,9 +207,10 @@ footer.site a:hover{color:#fff}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
 
 /* ===== Animation layer (progressive enhancement) =====
-   app.js adds .js to <html>. Without JS, everything stays visible and static. */
-html.js .rv{opacity:0;transform:translateY(18px)}
-html.js .rv.rv-in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:var(--rvd,0ms)}
+   app.js adds .js to <html> and .rv to reveal targets. Without JS, nothing is
+   ever hidden and the site stays fully visible and static. */
+.rv{opacity:0;transform:translateY(18px)}
+.rv.rv-in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:var(--rvd,0ms)}
 
 @keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 html.js .hero .kicker{animation:heroUp .5s .05s both}
