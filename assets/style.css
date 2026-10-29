@@ -205,3 +205,48 @@ footer.site a:hover{color:#fff}
 @media(max-width:600px){.foot-grid{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+
+/* ===== Animation layer (progressive enhancement) =====
+   app.js adds .js to <html>. Without JS, everything stays visible and static. */
+html.js .rv{opacity:0;transform:translateY(18px)}
+html.js .rv.rv-in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:var(--rvd,0ms)}
+
+@keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+html.js .hero .kicker{animation:heroUp .5s .05s both}
+html.js .hero h1{animation:heroUp .6s .12s both}
+html.js .hero .lead{animation:heroUp .6s .24s both}
+html.js .hero .hero-cta{animation:heroUp .6s .34s both}
+html.js .hero .paychips{animation:heroUp .6s .44s both}
+html.js .hero .hero-note{animation:heroUp .6s .52s both}
+html.js .hero-media{animation:heroUp .7s .2s both}
+
+.btn{transition:transform .15s ease,box-shadow .2s ease,background .18s,color .18s,border-color .18s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(0,127,204,.45)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.white:hover{box-shadow:0 10px 24px -8px rgba(255,255,255,.3)}
+
+.card{transition:transform .2s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+article.post{transition:transform .2s ease,box-shadow .25s ease}
+article.post:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.wall-grid img{transition:transform .18s ease,box-shadow .18s ease}
+.wall-grid img:hover{transform:translateY(-3px);box-shadow:0 8px 20px -6px rgba(66,71,91,.25)}
+
+.nav nav a:not(.btn){position:relative}
+.nav nav a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--blue);border-radius:2px;transition:right .22s ease}
+.nav nav a:not(.btn):hover::after,.nav nav a:not(.btn)[aria-current]::after{right:0}
+
+header.site{transition:box-shadow .25s ease}
+header.site.scrolled{box-shadow:0 6px 24px -10px rgba(66,71,91,.18)}
+
+/* logo marquee (index merchants wall) */
+html.js .marquee{display:block;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+html.js .marquee .m-track{display:flex;gap:12px;width:max-content;animation:scrollx 45s linear infinite}
+html.js .marquee:hover .m-track{animation-play-state:paused}
+html.js .marquee .m-track img{flex:0 0 auto;width:150px;height:74px}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+html.js details.faq[open] .a{animation:faIn .3s ease}
+@keyframes faIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+:focus-visible{outline:3px solid var(--blue-15);outline-offset:2px;border-radius:6px}
