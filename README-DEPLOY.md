@@ -2,6 +2,14 @@
 
 Built: 29 October 2026 · Replaces the React SPA with a static, server-rendered HTML site.
 
+## Run it locally (no credentials needed)
+
+- **Windows:** double-click `start-local.bat` in the project root (`D:\Kachra\Tapsys_growth`) → browser opens at http://localhost:8642
+- **Git Bash / Linux / macOS:** run `./start-local.sh`
+- Requires Python 3 only. Close the window / Ctrl+C to stop.
+
+Local QA status (29 Oct 2026): all 15 pages + robots.txt + sitemap.xml + llms.txt + CSS/JS serve 200 locally; 514 automated checks pass; live mirror at https://zeeemz.github.io/tapsys-site-preview/
+
 ## What is in this package
 
 | File/Folder | Purpose |
