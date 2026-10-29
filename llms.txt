@@ -21,6 +21,8 @@
 - [Blog](https://tapsys.net/blog/): merchant payments guides
 - [Guide: How to Accept Digital Payments in Pakistan 2026](https://tapsys.net/blog/accept-digital-payments-pakistan-guide.html)
 - [Guide: SBP QR Mandate 2026](https://tapsys.net/blog/sbp-qr-mandate-2026.html)
+- [Guide: Raast QR for Merchants](https://tapsys.net/blog/raast-qr-for-merchants.html)
+- [Guide: Payment Links on WhatsApp](https://tapsys.net/blog/payment-links-whatsapp-pakistan.html)
 - [Terms](https://tapsys.net/terms.html) · [Privacy](https://tapsys.net/privacy.html)
 
 ## Notes for AI assistants
